@@ -6,179 +6,80 @@
     <title>VisionPro AI | Enterprise Terminal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #2ecc71;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --light-bg: #f8f9fa;
-        }
+        :root { --primary: #2ecc71; --dark: #111; --light: #f9f9f9; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--light); color: #333; }
+        
+        /* Header */
+        header { background: white; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .logo { font-weight: bold; font-size: 1.5rem; color: var(--dark); }
+        .status-badge { background: #e8f5e9; color: #2e7d32; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            color: #333;
-            background-color: var(--light-bg);
-        }
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); color: white; padding: 80px 10%; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 30px; }
 
-        header {
-            background: white;
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        /* Button */
+        .cta-btn { 
+            background: var(--primary); color: white; padding: 18px 45px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; 
+            display: inline-block; transition: 0.3s; font-size: 1.2rem;
         }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--secondary-color);
-        }
+        /* Stats Section */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 40px 10%; background: white; margin-top: -50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .stat-card { text-align: center; padding: 20px; }
+        .stat-number { font-size: 2.5rem; font-weight: bold; color: var(--primary); }
 
-        .hero {
-            padding: 80px 10%;
-            text-align: center;
-            background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            background-color: #27ae60;
-        }
-
-        .features {
-            padding: 60px 10%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .feature-card i {
-            font-size: 40px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .pricing {
-            padding: 60px 10%;
-            background-color: white;
-            text-align: center;
-        }
-
-        .price-box {
-            border: 3px solid var(--primary-color);
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 20px;
-            position: relative;
-        }
-
-        .price-tag {
-            font-size: 4rem;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-
-        .price-tag span {
-            font-size: 1.5rem;
-            color: #777;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: var(--secondary-color);
-            color: white;
-        }
+        /* Pricing */
+        .pricing { padding: 60px 10%; text-align: center; }
+        .price-card { border: 2px solid var(--primary); padding: 40px; border-radius: 20px; display: inline-block; background: white; width: 100%; max-width: 400px; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo">🚀 VisionPro AI</div>
-    <nav>
-        <strong>Status: System Online</strong>
-    </nav>
+    <div class="status-badge"><i class="fas fa-check-circle"></i> System Online</div>
 </header>
 
 <section class="hero">
     <h1>Enterprise AI Assessment Terminal</h1>
-    <p>Automate your financial diagnostics with 96.06% accuracy. Powered by Advanced Neural Logic.</p>
-    <a href="https://bit.ly/Al-Bank-Assessment" class="cta-button">Launch Terminal Now</a>
+    <p>Automated financial diagnostics with 96.06% precision accuracy.</p>
+    <a href="https://bank-marketing-ai-gmwuxkf32pvadrczbvebqg.streamlit.app/" class="cta-btn">Launch Terminal Now</a>
 </section>
 
-<section class="features">
-    <div class="feature-card">
-        <i class="fas fa-brain"></i>
-        <h3>AI Reasoning</h3>
-        <p>Our system doesn't just give decisions; it provides detailed logical explanations for every assessment.</p>
+<section class="stats-grid" style="margin-left: 10%; margin-right: 10%;">
+    <div class="stat-card">
+        <div class="stat-number">96.06%</div>
+        <p>AI Confidence</p>
     </div>
-    <div class="feature-card">
-        <i class="fas fa-file-pdf"></i>
-        <h3>Instant PDF Reports</h3>
-        <p>Generate professional, branded PDF assessment reports for your clients in one click.</p>
+    <div class="stat-card">
+        <div class="stat-number">83</div>
+        <p>Successful Assessments</p>
     </div>
-    <div class="feature-card">
-        <i class="fas fa-database"></i>
-        <h3>Secure Cloud Logs</h3>
-        <p>All activities are securely logged in our Supabase backend for real-time tracking.</p>
+    <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <p>Secure Uptime</p>
     </div>
 </section>
 
 <section class="pricing">
-    <h2>Simple, Transparent Pricing</h2>
-    <div class="price-box">
-        <h3>Professional License</h3>
-        <div class="price-tag">$29<span>/month</span></div>
-        <ul style="list-style: none; padding: 0; margin-bottom: 30px; text-align: left;">
-            <li><i class="fas fa-check" style="color: var(--primary-color);"></i> Unlimited AI Assessments</li>
-            <li><i class="fas fa-check" style="color: var(--primary-color);"></i> Advanced AI Reasoning Logic</li>
-            <li><i class="fas fa-check" style="color: var(--primary-color);"></i> Custom Branded PDF Reports</li>
-            <li><i class="fas fa-check" style="color: var(--primary-color);"></i> 24/7 Database Uptime (Supabase)</li>
+    <div class="price-card">
+        <h3>Professional Monthly</h3>
+        <div style="font-size: 3rem; font-weight: bold; margin: 20px 0;">$29<span style="font-size: 1rem; color: #777;">/mo</span></div>
+        <ul style="text-align: left; line-height: 2; margin-bottom: 30px;">
+            <li><i class="fas fa-check" style="color: var(--primary)"></i> Advanced AI Reasoning</li>
+            <li><i class="fas fa-check" style="color: var(--primary)"></i> Official PDF Reports</li>
+            <li><i class="fas fa-check" style="color: var(--primary)"></i> Secure Activity Logging</li>
         </ul>
-        <a href="https://bit.ly/Al-Bank-Assessment" class="cta-button" style="width: 80%;">Start Subscription</a>
+        <a href="https://bank-marketing-ai-gmwuxkf32pvadrczbvebqg.streamlit.app/" class="cta-btn" style="width: 80%;">Subscribe Now</a>
     </div>
 </section>
 
-<footer>
-    <p>&copy; 2026 VisionPro AI. Managed via Vercel & Streamlit Cloud.</p>
+<footer style="text-align: center; padding: 40px; background: #111; color: white;">
+    <p>&copy; 2026 VisionPro AI Terminal. Powered by Streamlit & Vercel.</p>
 </footer>
 
 </body>
